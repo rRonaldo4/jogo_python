@@ -15,13 +15,19 @@ import pygame
 
 # pygame setup
 pygame.init()
+pygame.font.init()
+
 screen = pygame.display.set_mode((500, 500))
 pygame.display.set_caption('jogo da velha - by ronaldo')
 clock = pygame.time.Clock()
+
+fonte_quadrinhos = pygame.font.SysFont('Comic Sans Ms', 100, True, True)
 running = True
 
+personagem_x = fonte_quadrinhos.render('X', True, 'red')
+personagem_y = fonte_quadrinhos.render('O', True, 'red')
+
 cor_fundo = 1 # azul
-cor_fundo = 2 # vermelho
 
 while running:
     # poll for events
@@ -32,17 +38,17 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:
             print('clicou na tela')
             cor_fundo = cor_fundo + 1
-            if(cor_fundo > 4):
+            if(cor_fundo > 3):
                 cor_fundo = 1
 
     if cor_fundo == 1:
-        screen.fill('blue')
-    elif cor_fundo == 2:
-        screen.fill('red')
-    elif cor_fundo == 3:
         screen.fill('black')
+        screen.blit(personagem_x, (250, 250))
+    elif cor_fundo == 2:
+        screen.fill('black')
+        screen.blit(personagem_y, (250, 250))
     else:
-        screen.fill('green')
+        screen.fill('purple')
 
     # flip() the display to put your work on screen
     pygame.display.flip()
