@@ -1,5 +1,13 @@
 # https://www.pygame.org/ - documentação py game
 # Example file showing a basic pygame "game loop"
+# echo "# jogo_python" >> README.md
+# git init
+# git add README.md
+# git commit -m "first commit"
+# git branch -M main
+# git remote add origin https://github.com/rRonaldo4/jogo_python.git
+# git push -u origin main
+
 import pygame
 
 # pygame setup
