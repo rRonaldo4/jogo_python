@@ -1,5 +1,8 @@
 # https://www.pygame.org/ - documentação py game
 # Example file showing a basic pygame "game loop"
+
+# comandos - para criar repositório
+
 # echo "# jogo_python" >> README.md
 # git init
 # git add README.md
