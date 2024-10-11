@@ -13,6 +13,7 @@ import pygame
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((500, 500))
+pygame.display.set_caption('jogo da velha - by ronaldo')
 clock = pygame.time.Clock()
 running = True
 
