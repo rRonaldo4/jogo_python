@@ -25,11 +25,14 @@ fonte_quadrinhos = pygame.font.SysFont('Comic Sans Ms', 100, True, True)
 running = True
 
 personagem_x = fonte_quadrinhos.render('X', True, 'red')
-personagem_y = fonte_quadrinhos.render('O', True, 'red')
+personagem_o = fonte_quadrinhos.render('O', True, 'red')
 
-apresenta_personagem = 0 # azul
-x = 0
-y = 0
+jogador_atual = personagem_x # inicializa o jogo com x
+
+rodadas = 0 
+
+coordenada_x = 0
+coordenada_y = 0
 
 while running:
     # poll for events
@@ -42,12 +45,26 @@ while running:
             click_pos = pygame.mouse.get_pos() # posição do mouse quando houve o evento de click
             print('eixo x:', click_pos[0])
             print('eixo y:', click_pos[1])
-            x = click_pos[0]
-            y = click_pos[1]
-            apresenta_personagem = apresenta_personagem + 1
-            if(apresenta_personagem >= 10):
+            coordenada_x = click_pos[0]
+            coordenada_y = click_pos[1]
+            rodadas = rodadas + 1
+            if rodadas >= 10:
                 screen.fill('black')
-                apresenta_personagem = 0
+                rodadas = 0
+                coordenada_x = 0
+                coordenada_y = 0
+
+            if rodadas != 1:
+                if jogador_atual == personagem_x:
+                    jogador_atual = personagem_o
+                
+                else:
+                    jogador_atual = personagem_x
+            else: 
+                jogador_atual = personagem_x
+                
+            
+
     # Desenha o tabuleiro
     #                                origem    destino
     #                                (x, y)   (x, y)
@@ -56,32 +73,32 @@ while running:
     pygame.draw.line(screen, 'white',(0, 200),(600, 200), 5)
     pygame.draw.line(screen, 'white',(0, 400),(600, 400), 5)
 
-    if x > 0 and x < 200 and y < 200:
-        screen.blit(personagem_x, (60, 30)) # 1
+    if coordenada_x > 0 and coordenada_x < 200 and coordenada_y < 200:
+        screen.blit(jogador_atual,(60,30))  #primeiro
 
-    elif x >= 200 and x < 400 and y < 200:
-        screen.blit(personagem_y, (260, 30)) # 2
+    elif coordenada_x >= 200 and coordenada_x < 400 and coordenada_y < 200:
+        screen.blit(jogador_atual,(260,30)) #segundo
 
-    elif x >= 400 and y < 200:
-        screen.blit(personagem_y, (460, 30)) # 3
+    elif coordenada_x >= 400 and coordenada_y < 200:
+        screen.blit(jogador_atual,(460,30)) #terceiro
 
-    elif x < 200 and y >= 200 and y < 400:
-        screen.blit(personagem_x, (60, 230)) # 4
+    elif coordenada_x < 200 and coordenada_y >= 200 and coordenada_y < 400:
+        screen.blit(jogador_atual,(60,230))  #quarto
 
-    elif x > 200 and x < 40 and y > 200 and y <= 400:
-        screen.blit(personagem_y, (260, 230)) # 5
+    elif coordenada_x >= 200 and coordenada_x < 400 and coordenada_y >= 200 and coordenada_y < 400:
+        screen.blit(jogador_atual,(260,230)) #quinto
 
-    elif x >= 400 and y > 200 and y <= 400:
-        screen.blit(personagem_y, (460, 230)) # 6
+    elif coordenada_x >= 400 and coordenada_y >= 200 and coordenada_y < 400:
+        screen.blit(jogador_atual,(460,230)) #sexto
 
-    elif x < 200 and y >= 400:
-        screen.blit(personagem_x, (60, 430)) # 7
+    elif coordenada_x < 200 and coordenada_y >= 400:
+        screen.blit(jogador_atual,(60,430))  #setimo
 
-    elif x >= 200 and y < 400 and y >=400:
-        screen.blit(personagem_y, (260, 430)) # 8
-        
-    elif x >= 400 and y >= 400:
-        screen.blit(personagem_y, (460, 430)) # 9
+    elif coordenada_x >= 200 and coordenada_x < 400 and coordenada_y >= 400:
+        screen.blit(jogador_atual,(260,430)) #oitavo
+
+    elif coordenada_x >= 400 and coordenada_y >= 400:
+        screen.blit(jogador_atual,(460,430)) #nono
     
     # flip() the display to put your work on screen
     pygame.display.flip()
