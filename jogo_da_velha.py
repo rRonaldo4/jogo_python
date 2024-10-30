@@ -11,7 +11,7 @@
 # git remote add origin https://github.com/rRonaldo4/jogo_python.git
 # git push -u origin main
 
-# --------------------------------------------------------------------------------------
+# ------------------------------------------------------------------
 
 # git pull origin main
 
