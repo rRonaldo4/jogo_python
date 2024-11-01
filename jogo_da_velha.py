@@ -35,8 +35,8 @@ clock = pygame.time.Clock()
 fonte_quadrinhos = pygame.font.SysFont('Comic Sans Ms', 100, True, True)
 running = True
 
-personagem_x = fonte_quadrinhos.render('X', True, 'blue')
-personagem_o = fonte_quadrinhos.render('O', True, 'blue')
+personagem_x = fonte_quadrinhos.render('X', True, 'pink')
+personagem_o = fonte_quadrinhos.render('O', True, 'yellow')
 
 jogador_atual = personagem_x # inicializa o jogo com x
 
@@ -44,6 +44,19 @@ rodadas = 0
 tabuleiro_desenhado = False
 coordenada_x = 0
 coordenada_y = 0
+
+q1 = ''
+q2 = ''
+q3 = ''
+
+q4 = ''
+q5 = ''
+q6 = ''
+
+q7 = ''
+q8 = ''
+q9 = ''
+
 
 def desenha_tabuleiro(espessura, cor):
     # Desenha o tabuleiro
@@ -55,32 +68,46 @@ def desenha_tabuleiro(espessura, cor):
     pygame.draw.line(screen, cor,(0, 400),(600, 400), espessura)
 
 def faz_jogada():
-    if coordenada_x > 0 and coordenada_x < 200 and coordenada_y < 200:
+    global q1, q2, q3, q4, q5, q6, q7, q8, q9
+    status = True
+    if q1 == '' and coordenada_x > 0 and coordenada_x < 200 and coordenada_y < 200:
         screen.blit(jogador_atual,(60,30))  #primeiro
+        q1 = jogador_atual
 
-    elif coordenada_x >= 200 and coordenada_x < 400 and coordenada_y < 200:
+    elif q2 == '' and coordenada_x >= 200 and coordenada_x < 400 and coordenada_y < 200:
         screen.blit(jogador_atual,(260,30)) #segundo
+        q2 = jogador_atual
 
-    elif coordenada_x >= 400 and coordenada_y < 200:
+    elif q3 == '' and coordenada_x >= 400 and coordenada_y < 200:
         screen.blit(jogador_atual,(460,30)) #terceiro
+        q3 = jogador_atual
 
-    elif coordenada_x < 200 and coordenada_y >= 200 and coordenada_y < 400:
+    elif q4 == '' and coordenada_x < 200 and coordenada_y >= 200 and coordenada_y < 400:
         screen.blit(jogador_atual,(60,230))  #quarto
+        q4 = jogador_atual
 
-    elif coordenada_x >= 200 and coordenada_x < 400 and coordenada_y >= 200 and coordenada_y < 400:
+    elif q5 == '' and coordenada_x >= 200 and coordenada_x < 400 and coordenada_y >= 200 and coordenada_y < 400:
         screen.blit(jogador_atual,(260,230)) #quinto
+        q5 = jogador_atual
 
-    elif coordenada_x >= 400 and coordenada_y >= 200 and coordenada_y < 400:
+    elif q6 == '' and coordenada_x >= 400 and coordenada_y >= 200 and coordenada_y < 400:
         screen.blit(jogador_atual,(460,230)) #sexto
+        q6 = jogador_atual
 
-    elif coordenada_x < 200 and coordenada_y >= 400:
+    elif q7 == '' and coordenada_x < 200 and coordenada_y >= 400:
         screen.blit(jogador_atual,(60,430))  #setimo
+        q7 = jogador_atual
 
-    elif coordenada_x >= 200 and coordenada_x < 400 and coordenada_y >= 400:
+    elif q8 == '' and coordenada_x >= 200 and coordenada_x < 400 and coordenada_y >= 400:
         screen.blit(jogador_atual,(260,430)) #oitavo
+        q8 = jogador_atual
 
-    elif coordenada_x >= 400 and coordenada_y >= 400:
+    elif q9 == '' and coordenada_x >= 400 and coordenada_y >= 400:
         screen.blit(jogador_atual,(460,430)) #nono
+        q9 = jogador_atual
+    else:
+        status = False
+    return status
 
 while running:
     # poll for events
@@ -97,29 +124,38 @@ while running:
             print('eixo y:', click_pos[1])
             coordenada_x = click_pos[0]
             coordenada_y = click_pos[1]
-            rodadas = rodadas + 1
-            if rodadas >= 10:
-                screen.fill('green')
+
+            if rodadas >= 9:
+                screen.fill('black')
                 rodadas = 0
                 coordenada_x = 0
                 coordenada_y = 0
                 tabuleiro_desenhado = False
 
-            if rodadas != 1:
+            if(faz_jogada()):
+                rodadas = rodadas + 1
                 if jogador_atual == personagem_x:
                     jogador_atual = personagem_o
-                
-                else:
+                else: 
                     jogador_atual = personagem_x
-            else: 
-                jogador_atual = personagem_x
 
             faz_jogada()
 
     if tabuleiro_desenhado == False:               
-            desenha_tabuleiro(10, 'yellow')
+            desenha_tabuleiro(10, 'green')
+            q1 = ''
+            q2 = ''
+            q3 = ''
+
+            q4 = ''
+            q5 = ''
+            q6 = ''
+
+            q7 = ''
+            q8 = ''
+            q9 = ''
             tabuleiro_desenhado = True
-    # faz_jogada()
+    # faz_jogada() apagar
     
     # flip() the display to put your work on screen
     pygame.display.flip()
