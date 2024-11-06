@@ -35,7 +35,7 @@ clock = pygame.time.Clock()
 fonte_quadrinhos = pygame.font.SysFont('Comic Sans Ms', 100, True, True)
 running = True
 
-personagem_x = fonte_quadrinhos.render('X', True, 'pink')
+personagem_x = fonte_quadrinhos.render('X', True, 'red')
 personagem_o = fonte_quadrinhos.render('O', True, 'yellow')
 
 jogador_atual = personagem_x # inicializa o jogo com x
@@ -78,6 +78,7 @@ def faz_jogada():
         screen.blit(jogador_atual,(260,30)) #segundo
         q2 = jogador_atual
 
+
     elif q3 == '' and coordenada_x >= 400 and coordenada_y < 200:
         screen.blit(jogador_atual,(460,30)) #terceiro
         q3 = jogador_atual
@@ -109,6 +110,38 @@ def faz_jogada():
         status = False
     return status
 
+def check_vencedor():
+
+    status = False
+
+    if q1 == q2 == q3 != '':
+        pygame.draw.line(screen, 'white',(50, 100),(550, 100), 10)
+        status = True
+    elif q4 == q5 == q6 != '':
+        pygame.draw.line(screen, 'white',(50, 300),(550, 300), 10)
+        status = True
+    elif q7 == q8 == q9 != '':
+        pygame.draw.line(screen, 'white',(50, 500),(550, 500), 10)
+        status = True
+
+    elif q1 == q4 == q7 != '':
+        pygame.draw.line(screen, 'white',(100, 50),(100, 550), 10)
+        status = True
+    elif q2 == q5 == q8 != '':
+        pygame.draw.line(screen, 'white',(300, 50),(300, 550), 10)
+        status = True
+    elif q3 == q6 == q9 != '':
+        pygame.draw.line(screen, 'white',(50, 400),(500, 100), 10)
+        status = True
+
+    elif q1 == q5 == q9 != '':
+        pygame.draw.line(screen, 'white',(50, 100),(600, 800), 10) 
+        status = True
+    elif q3 == q5 == q7 != '':
+        pygame.draw.line(screen, 'white',(100, 500),(500, 100), 10) # ok
+        status = True
+    return status  
+
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
@@ -118,7 +151,7 @@ while running:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN: # evento de click do mouse
             
-            print('clicou na tela')
+            # print('clicou na tela')
             click_pos = pygame.mouse.get_pos() # posição do mouse quando houve o evento de click
             print('eixo x:', click_pos[0])
             print('eixo y:', click_pos[1])
@@ -130,7 +163,9 @@ while running:
                 rodadas = 0
                 coordenada_x = 0
                 coordenada_y = 0
+                jogador_atual = personagem_x
                 tabuleiro_desenhado = False
+                break
 
             if(faz_jogada()):
                 rodadas = rodadas + 1
@@ -138,8 +173,10 @@ while running:
                     jogador_atual = personagem_o
                 else: 
                     jogador_atual = personagem_x
+                if(check_vencedor()):
+                    rodada = 9
 
-            faz_jogada()
+            # faz_jogada()
 
     if tabuleiro_desenhado == False:               
             desenha_tabuleiro(10, 'green')
@@ -155,8 +192,8 @@ while running:
             q8 = ''
             q9 = ''
             tabuleiro_desenhado = True
-    # faz_jogada() apagar
-    
+
+    # faz_jogada() apagar    
     # flip() the display to put your work on screen
     pygame.display.flip()
 
