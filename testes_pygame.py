@@ -36,7 +36,7 @@ while True:
 	# Declarando click do mouse
 	click = pygame.mouse.get_pressed()
 
-	# Blocos de SeleÃ§Ã£o - Linha 1 - Coluna 1
+	# Blocos de Seleção - Linha 1 - Coluna 1
 	if 50 <= mouse[0] <= 200 and 50 <= mouse[1] <= 200:
 		if click[0] == 1 and position[0] == 0 and x_ou_o == 1:
 			pygame.draw.line(window, vermelho, (100, 100), (150, 150), 10)
@@ -49,7 +49,7 @@ while True:
 			position[0] = 2
 			x_ou_o = 1
 
-	# Blocos de SeleÃ§Ã£o - Linha 1 - Coluna 2
+	# Blocos de Seleção - Linha 1 - Coluna 2
 	if 211 <= mouse[0] <= 360 and 50 <= mouse[1] <= 200:
 		if click[0] == 1 and position[1] == 0 and x_ou_o == 1:
 			pygame.draw.line(window, vermelho, (261, 100), (311, 150), 10)
@@ -62,7 +62,7 @@ while True:
 			position[1] = 2
 			x_ou_o = 1
 
-	# Blocos de SeleÃ§Ã£o - Linha 1 - Coluna 3
+	# Blocos de Seleção - Linha 1 - Coluna 3
 	if 371 <= mouse[0] <= 520 and 50 <= mouse[1] <= 200:
 		if click[0] == 1 and position[2] == 0 and x_ou_o == 1:
 			pygame.draw.line(window, vermelho, (421, 100), (471, 150), 10)
@@ -76,7 +76,7 @@ while True:
 			x_ou_o = 1
 
 
-	# Blocos de SeleÃ§Ã£o - Linha 2 - Coluna 1
+	# Blocos de Seleção - Linha 2 - Coluna 1
 	if 50 <= mouse[0] <= 200 and 211 <= mouse[1] <= 361:
 		if click[0] == 1 and position[3] == 0 and x_ou_o == 1:
 			pygame.draw.line(window, vermelho, (100, 311), (150, 261), 10)
@@ -89,7 +89,7 @@ while True:
 			position[3] = 2
 			x_ou_o = 1
 
-	# Blocos de SeleÃ§Ã£o - Linha 2 - Coluna 2
+	# Blocos de Seleção - Linha 2 - Coluna 2
 	if 211 <= mouse[0] <= 360 and 211 <= mouse[1] <= 361:
 		if click[0] == 1 and position[4] == 0 and x_ou_o == 1:
 			pygame.draw.line(window, vermelho, (261, 311), (311, 261), 10)
@@ -102,7 +102,7 @@ while True:
 			position[4] = 2
 			x_ou_o = 1
 
-	# Blocos de SeleÃ§Ã£o - Linha 2 - Coluna 3
+	# Blocos de Seleção - Linha 2 - Coluna 3
 	if 371 <= mouse[0] <= 520 and 211 <= mouse[1] <= 361:
 		if click[0] == 1 and position[5] == 0 and x_ou_o == 1:
 			pygame.draw.line(window, vermelho, (421, 311), (471, 261), 10)
@@ -117,7 +117,7 @@ while True:
 
 
 
-	# Blocos de SeleÃ§Ã£o - Linha 3 - Coluna 1
+	# Blocos de Seleção - Linha 3 - Coluna 1
 	if 50 <= mouse[0] <= 200 and 371 <= mouse[1] <= 521:
 		if click[0] == 1 and position[6] == 0 and x_ou_o == 1:
 			pygame.draw.line(window, vermelho, (100, 472), (150, 422), 10)
@@ -130,7 +130,7 @@ while True:
 			position[6] = 2
 			x_ou_o = 1
 
-	# Blocos de SeleÃ§Ã£o - Linha 3 - Coluna 2
+	# Blocos de Seleção - Linha 3 - Coluna 2
 	if 211 <= mouse[0] <= 360 and 371 <= mouse[1] <= 521:
 		if click[0] == 1 and position[7] == 0 and x_ou_o == 1:
 			pygame.draw.line(window, vermelho, (261, 472), (311, 422), 10)
@@ -143,7 +143,7 @@ while True:
 			position[7] = 2
 			x_ou_o = 1
 
-	# Blocos de SeleÃ§Ã£o - Linha 3 - Coluna 3
+	# Blocos de Seleção - Linha 3 - Coluna 3
 	if 371 <= mouse[0] <= 520 and 371 <= mouse[1] <= 521:
 		if click[0] == 1 and position[8] == 0 and x_ou_o == 1:
 			pygame.draw.line(window, vermelho, (421, 472), (471, 422), 10)
@@ -156,7 +156,7 @@ while True:
 			position[8] = 2
 			x_ou_o = 1
 
-	# TraÃ§o final
+	# Tração final
 	# Linha 1 
 	if position[0] == 1 and position[1] == 1 and position[2] == 1 and fim == 0 or position[0] == 2 and position[1] == 2 and position[2] == 2 and fim == 0:
 		pygame.draw.line(window, verde, (100, 125), (470, 125), 10)
@@ -263,23 +263,23 @@ while True:
 		fim = 1
 		
 	if 0 <= mouse[0] <= 600 and click[2] == 1 and fim == 1:
-		# Blocos de SeleÃ§Ã£o - Linha 1 - Coluna 1
+		# Blocos de Seleção - Linha 1 - Coluna 1
 		pygame.draw.rect(window, branco, (50, 50, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 1 - Coluna 2
+		# Blocos de Seleção - Linha 1 - Coluna 2
 		pygame.draw.rect(window, branco, (211, 50, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 1 - Coluna 3
+		# Blocos de Seleção - Linha 1 - Coluna 3
 		pygame.draw.rect(window, branco, (371, 50, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 2 - Coluna 1
+		# Blocos de Seleção - Linha 2 - Coluna 1
 		pygame.draw.rect(window, branco, (50, 211, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 2 - Coluna 2
+		# Blocos de Seleção - Linha 2 - Coluna 2
 		pygame.draw.rect(window, branco, (211, 211, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 2 - Coluna 3
+		# Blocos de Seleção - Linha 2 - Coluna 3
 		pygame.draw.rect(window, branco, (371, 211, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 3 - Coluna 1
+		# Blocos de Seleção - Linha 3 - Coluna 1
 		pygame.draw.rect(window, branco, (50, 371, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 3 - Coluna 2
+		# Blocos de Seleção - Linha 3 - Coluna 2
 		pygame.draw.rect(window, branco, (211, 371, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 3 - Coluna 3
+		# Blocos de Seleção - Linha 3 - Coluna 3
 		pygame.draw.rect(window, branco, (371, 371, 150, 150))
 		# Grade do tabuleiro 
 		pygame.draw.line(window, preto, (205, 50), (205, 521), 10)
@@ -298,23 +298,23 @@ while True:
 		x_ou_o = 1
 		fim = 0
 	elif sum(position) == 13 and click[2] == 1:
-		# Blocos de SeleÃ§Ã£o - Linha 1 - Coluna 1
+		# Blocos de Seleção - Linha 1 - Coluna 1
 		pygame.draw.rect(window, branco, (50, 50, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 1 - Coluna 2
+		# Blocos de Seleção - Linha 1 - Coluna 2
 		pygame.draw.rect(window, branco, (211, 50, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 1 - Coluna 3
+		# Blocos de Seleção - Linha 1 - Coluna 3
 		pygame.draw.rect(window, branco, (371, 50, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 2 - Coluna 1
+		# Blocos de Seleção - Linha 2 - Coluna 1
 		pygame.draw.rect(window, branco, (50, 211, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 2 - Coluna 2
+		# Blocos de Seleção - Linha 2 - Coluna 2
 		pygame.draw.rect(window, branco, (211, 211, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 2 - Coluna 3
+		# Blocos de Seleção - Linha 2 - Coluna 3
 		pygame.draw.rect(window, branco, (371, 211, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 3 - Coluna 1
+		# Blocos de Seleção - Linha 3 - Coluna 1
 		pygame.draw.rect(window, branco, (50, 371, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 3 - Coluna 2
+		# Blocos de Seleção - Linha 3 - Coluna 2
 		pygame.draw.rect(window, branco, (211, 371, 150, 150))
-		# Blocos de SeleÃ§Ã£o - Linha 3 - Coluna 3
+		# Blocos de Seleção - Linha 3 - Coluna 3
 		pygame.draw.rect(window, branco, (371, 371, 150, 150))
 		# Grade do tabuleiro 
 		pygame.draw.line(window, preto, (205, 50), (205, 521), 10)

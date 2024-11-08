@@ -115,30 +115,30 @@ def check_vencedor():
     status = False
 
     if q1 == q2 == q3 != '':
-        pygame.draw.line(screen, 'white',(50, 100),(550, 100), 10)
+        pygame.draw.line(screen, 'white',(50, 100),(550, 100), 10) # linha horizontal
         status = True
     elif q4 == q5 == q6 != '':
-        pygame.draw.line(screen, 'white',(50, 300),(550, 300), 10)
+        pygame.draw.line(screen, 'white',(50, 300),(550, 300), 10) # linha horizontal
         status = True
     elif q7 == q8 == q9 != '':
-        pygame.draw.line(screen, 'white',(50, 500),(550, 500), 10)
+        pygame.draw.line(screen, 'white',(50, 500),(550, 500), 10) # linha horizontal
         status = True
 
     elif q1 == q4 == q7 != '':
-        pygame.draw.line(screen, 'white',(100, 50),(100, 550), 10)
+        pygame.draw.line(screen, 'white',(100, 50),(100, 550), 10) # linha vertical
         status = True
     elif q2 == q5 == q8 != '':
-        pygame.draw.line(screen, 'white',(300, 50),(300, 550), 10)
+        pygame.draw.line(screen, 'white',(300, 50),(300, 550), 10) # linha vertical
         status = True
     elif q3 == q6 == q9 != '':
-        pygame.draw.line(screen, 'white',(50, 400),(500, 100), 10)
+        pygame.draw.line(screen, 'white',(500, 50),(500, 550), 10) # linha vertical
         status = True
 
     elif q1 == q5 == q9 != '':
-        pygame.draw.line(screen, 'white',(50, 100),(600, 800), 10) 
+        pygame.draw.line(screen, 'white',(500, 500),(100, 98), 10) # linha diagonal 
         status = True
     elif q3 == q5 == q7 != '':
-        pygame.draw.line(screen, 'white',(100, 500),(500, 100), 10) # ok
+        pygame.draw.line(screen, 'white',(100, 500),(500, 100), 10) # linha diagonal
         status = True
     return status  
 
